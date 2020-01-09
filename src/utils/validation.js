@@ -43,3 +43,17 @@ extend('code', {
   },
   message: '{_field_}格式有误'
 })
+
+extend('odd', {
+  validate: (value, args) => {
+    return value === '18532620986'
+  },
+
+  // 如果用params接收参数的话，就是对象格式的，如果只是函数传参的话就是数组格式的
+  // 并且每次输入内容都会执行message中的函数
+  params: ['args'],
+  message (fieldName, obj) {
+    console.log(fieldName, obj)
+    return fieldName
+  }
+})

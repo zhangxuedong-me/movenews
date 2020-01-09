@@ -6,9 +6,11 @@
       ValidationProvider：把需要效验的具体的表单元素包裹起来
       name：匹配验证字段的名称
       rules：验证的规则
-      v-slot="{errors}"：获取错误信息
+      v-slot="{errors}"：获取错误信息，负责在模板中使用
 
       多个验证规则使用|管道分割开来
+
+      :bails="false"：加上该属性可以 理解触发验证规则中的message信息
      -->
     <van-cell-group>
       <ValidationObserver ref="form">
@@ -16,6 +18,7 @@
           name="手机号"
           rules="required|mobile"
           v-slot="{errors}"
+          :bails="false"
         >
           <van-field
             v-model="userData.mobile"
@@ -120,6 +123,7 @@ export default {
       this.isShow = true
       // 验证手机号字段，第一个参数是要验证的字段，第二个参数是验证的规则
       // 第三个参数是一个可选的对象，属性有name要验证的字段
+      // 验证单独的字段
       const validResult = await validate(mobile, 'required|mobile', {
         // 设置自己的name属性的值
         name: '手机号'
@@ -131,10 +135,10 @@ export default {
       }
       try {
         // 请求获取短信验证码，将手机号传递过去
-        let result = await getCodeInfo(mobile)
-        console.log(result)
+        await getCodeInfo(mobile)
       } catch (err) {
         this.isShow = false
+        // 如果状态码等于429说明是频繁的发送了验证码，验证码需要一分钟发送一次
         if (err.response.status === 429) {
           this.$toast('请勿频繁发送')
           return
