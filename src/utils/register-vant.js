@@ -7,7 +7,24 @@ import {
   CellGroup,
   Button,
   Toast,
-  CountDown
+  CountDown,
+  Tabbar,
+  TabbarItem,
+  Image,
+  Grid,
+  GridItem,
+  Dialog,
+  Tab,
+  Tabs,
+  List,
+  PullRefresh,
+  Panel,
+  Lazyload,
+  Popup,
+  Search,
+  Row,
+  Divider,
+  Loading
 } from 'vant'
 Vue.use(NavBar)
   .use(Field)
@@ -17,3 +34,20 @@ Vue.use(NavBar)
   .use(Button)
   .use(Toast)
   .use(CountDown)
+  .use(Tabbar)
+  .use(TabbarItem)
+  .use(Image)
+  .use(Grid)
+  .use(GridItem)
+  .use(Dialog)
+  .use(Tab)
+  .use(Tabs)
+  .use(List)
+  .use(PullRefresh)
+  .use(Panel)
+  .use(Lazyload)
+  .use(Popup)
+  .use(Search)
+  .use(Row)
+  .use(Divider)
+  .use(Loading)

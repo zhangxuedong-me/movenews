@@ -7,6 +7,7 @@ import './styles/index.less'
 // 用来设置rem的精准值
 import 'amfe-flexible'
 import './utils/validation.js'
+import './utils/datatime.js'
 Vue.config.productionTip = false
 
 new Vue({

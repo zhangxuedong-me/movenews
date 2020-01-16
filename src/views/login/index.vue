@@ -48,7 +48,7 @@
             />
             <van-button
               v-else slot="button"
-              plain type="info"
+              type="primary"
               size="small"
               @click="sendCode"
             >
@@ -68,7 +68,7 @@
 import {
   getUserInfo,
   getCodeInfo
-} from '../../api/axios'
+} from '../../api/axios/user.js'
 // 表示专门用来验证某一个字段的，需要单独的引入
 import { validate } from 'vee-validate'
 export default {
@@ -104,11 +104,17 @@ export default {
         forbidClick: true
       })
       try {
-        await getUserInfo(this.userData)
+        let result = await getUserInfo(this.userData)
         // 但是如果这里还有提示信息的话，就可以避免一直加载问题
         setTimeout(() => {
           this.$toast.success('登录成功')
         }, 500)
+        // 跳转到主页
+        setTimeout(() => {
+          this.$router.push('/home/me')
+        }, 1000)
+        // 登录成功的话存储tooken
+        this.$store.commit('setUserToken', result.data.data)
       } catch (err) {
         setTimeout(() => {
           this.$toast.fail('登录失败')
