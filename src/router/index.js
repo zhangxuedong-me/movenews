@@ -25,6 +25,9 @@ const routes = [
   { path: '/articles/:articleId',
     component: () => import('@/views/article-details'),
     props: true
+  },
+  {
+    path: '/edit', component: () => import('@/views/edit-user')
   }
 ]
 

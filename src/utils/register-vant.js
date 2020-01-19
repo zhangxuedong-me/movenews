@@ -24,7 +24,10 @@ import {
   Search,
   Row,
   Divider,
-  Loading
+  Loading,
+  Picker,
+  DatetimePicker,
+  ImagePreview
 } from 'vant'
 Vue.use(NavBar)
   .use(Field)
@@ -51,3 +54,6 @@ Vue.use(NavBar)
   .use(Row)
   .use(Divider)
   .use(Loading)
+  .use(Picker)
+  .use(DatetimePicker)
+  .use(ImagePreview)

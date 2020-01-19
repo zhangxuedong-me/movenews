@@ -11,7 +11,7 @@
               round
             />
             <div class="already-login-top-item">{{ meInfo.name }}</div>
-            <span class="edit-data">编辑资料</span>
+            <span class="edit-data" @click="$router.push('/edit')">编辑资料</span>
           </div>
           <van-grid class="data-info" :border="false">
             <van-grid-item>

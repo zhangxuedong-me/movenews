@@ -43,3 +43,29 @@ export const cancelFollowUser = target => {
     method: 'delete'
   })
 }
+
+// 获取用户的个人资料
+export const getUserData = data => {
+  return request({
+    url: '/app/v1_0/user/profile',
+    method: 'get'
+  })
+}
+
+// 编辑用户资料
+export const editUserData = data => {
+  return request({
+    url: '/app/v1_0/user/profile',
+    method: 'patch',
+    data
+  })
+}
+
+// 上传用户头像
+export const editUploadImg = data => {
+  return request({
+    url: '/app/v1_0/user/photo',
+    method: 'patch',
+    data
+  })
+}
